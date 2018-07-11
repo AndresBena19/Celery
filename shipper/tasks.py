@@ -10,12 +10,12 @@ from django.contrib.auth import get_user_model
 import time
 app = current_app
 
-@app.task(bind=True)
-def test_shipper(self):
+@app.task()
+def test_shipper():
     files = os.listdir(settings.REPORTS_DIR_FILES)
 
     print("Report Files")
-    time.sleep(300)
+    time.sleep(20)
     for file in files:
         print(f"[+] file: {file}")
 
